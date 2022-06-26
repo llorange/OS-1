@@ -13,29 +13,29 @@
 #include <sys/times.h>
 #include <sys/utsname.h>
 
-int sys_execve2(const char *path, char * argv[], char * envp[])
-{
-	return 0;
-}
-int sys_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count)
-{
-	return 0;
-}
+// int sys_execve2(const char *path, char * argv[], char * envp[])
+// {
+// 	return 0;
+// }
+// int sys_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count)
+// {
+// 	return 0;
+// }
 int sys_cjy()
 {
 	return 0;
 }
-int sys_sleep(unsigned int seconds)
-{
-	sys_signal(14,1,14);
-	sys_alarm(seconds);
-	sys_pause();
-	return 0;
-}
-long sys_getcwd(char * buf, size_t size)
-{
-	return 0;
-}
+// int sys_sleep(unsigned int seconds)
+// {
+// 	sys_signal(14,SIG_IGN,NULL);
+// 	sys_alarm(seconds);
+// 	sys_pause();
+// 	return 0;
+// }
+// long sys_getcwd(char * buf, size_t size)
+// {
+// 	return 0;
+// }
 
 
 int sys_ftime()
