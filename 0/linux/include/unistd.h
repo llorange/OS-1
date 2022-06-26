@@ -150,6 +150,11 @@
 #define __NR_cjy		89
 #define __NR_sleep		90
 #define __NR_getcwd		91
+#define __NR_pipe2	92
+#define __NR_mmap	93
+#define __NR_munmap	94
+#define __NR_clone	95
+
 
 #define _syscall0(type,name) \
 type name(void) \
@@ -276,7 +281,10 @@ int getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count);
 int cjy();
 int sleep(unsigned int seconds);
 long getcwd(char * buf, size_t size);
-
+int pipe2(int * pipefd,int flags);
+long mmap(void *start, size_t len, int prot, int flags, int fd, off_t off);
+int munmap(void * start, size_t len);
+int clone(int (*fn)(void *), void *child_stack, int flags, void *arg);
 
 #define __always_inline inline __attribute__((always_inline))
 

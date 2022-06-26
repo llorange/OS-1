@@ -90,11 +90,15 @@ extern int sys_lstat();
 extern int sys_readlink();
 extern int sys_uselib();
 
-extern int sys_execve2(const char *path, char * argv[], char * envp[]);
-extern int sys_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count);
+extern int sys_execve2();
+extern int sys_getdents();
 extern int sys_cjy();
-extern int sys_sleep(unsigned int seconds);
-extern long sys_getcwd(char * buf, size_t size);
+extern int sys_sleep();
+extern long sys_getcwd();
+extern int sys_pipe2();
+extern int sys_mmap();
+extern int sys_munmap();
+extern int sys_clone();
 
 fn_ptr sys_call_table[] = { sys_setup, sys_exit, sys_fork, sys_read,
 sys_write, sys_open, sys_close, sys_waitpid, sys_creat, sys_link,
@@ -111,7 +115,8 @@ sys_getpgrp, sys_setsid, sys_sigaction, sys_sgetmask, sys_ssetmask,
 sys_setreuid,sys_setregid, sys_sigsuspend, sys_sigpending, sys_sethostname,
 sys_setrlimit, sys_getrlimit, sys_getrusage, sys_gettimeofday, 
 sys_settimeofday, sys_getgroups, sys_setgroups, sys_select, sys_symlink,
-sys_lstat, sys_readlink, sys_uselib ,sys_execve2 ,sys_getdents ,sys_cjy ,sys_sleep ,sys_getcwd};
+sys_lstat, sys_readlink, sys_uselib ,sys_execve2 ,sys_getdents ,sys_cjy ,sys_sleep ,sys_getcwd
+sys_pipe2, sys_mmap, sys_munmap, sys_clone};
 
 /* So we don't have to do any more manual updating.... */
 int NR_syscalls = sizeof(sys_call_table)/sizeof(fn_ptr);
